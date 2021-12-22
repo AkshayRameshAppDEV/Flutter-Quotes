@@ -42,34 +42,26 @@ class _MyHomePageState extends State<MyHomePage> {
     return quotes[_counter];
   }
 
-  Stack getStack() {
-    return Stack(
-      alignment: Alignment.center,
-      children: [Text(getQuote())],
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Motivational Quotes"),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(getQuote(),
-                style: Theme.of(context).textTheme.headline5,
-                textAlign: TextAlign.center),
-          ],
+        appBar: AppBar(
+          title: const Text("Motivational Quotes"),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(getQuote(),
+                  style: Theme.of(context).textTheme.headline5,
+                  textAlign: TextAlign.center),
+              ElevatedButton.icon(
+                onPressed: _incrementCounter,
+                icon: const Icon(Icons.check, size: 18),
+                label: const Text("Inspire Me"),
+              )
+            ],
+          ),
+        ));
   }
 }
