@@ -21,11 +21,20 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-
+  var quotesArr = ["A", "B", "C", "D", "E", "F"];
   void _incrementCounter() {
     setState(() {
       _counter++;
     });
+  }
+
+  String getQuote() {
+    if(_counter < quotesArr.length) {
+      return quotesArr[_counter];
+    } else {
+      _counter = 0;
+    }
+    return quotesArr[_counter];
   }
 
   @override
@@ -42,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             Text(
-              '$_counter',
+              getQuote(),
               style: Theme.of(context).textTheme.headline4,
             ),
           ],
