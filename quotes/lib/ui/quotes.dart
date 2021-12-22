@@ -47,15 +47,28 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         appBar: AppBar(
           title: const Text("Motivational Quotes"),
+          backgroundColor: Colors.redAccent
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(getQuote(),
-                  style: Theme.of(context).textTheme.headline5,
-                  textAlign: TextAlign.center),
+              Center(
+                child: Container(
+                  alignment: Alignment.center,
+                  width: 380,
+                  height: 250,
+                  decoration: const BoxDecoration(
+                    color: Colors.redAccent,
+                  ),
+                  child: Text(getQuote(),
+                      style: const TextStyle(
+                          fontStyle: FontStyle.italic, fontSize: 18.0, color: Colors.white, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center),
+                ),
+              ),
               ElevatedButton.icon(
+                style:  ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.redAccent)),
                 onPressed: _incrementCounter,
                 icon: const Icon(Icons.check, size: 18),
                 label: const Text("Inspire Me"),
