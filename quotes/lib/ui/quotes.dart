@@ -42,6 +42,13 @@ class _MyHomePageState extends State<MyHomePage> {
     return quotes[_counter];
   }
 
+  Stack getStack() {
+    return Stack(
+      alignment: Alignment.center,
+      children: [Text(getQuote())],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,13 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              getQuote(),
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            Text(getQuote(),
+                style: Theme.of(context).textTheme.headline5,
+                textAlign: TextAlign.center),
           ],
         ),
       ),
